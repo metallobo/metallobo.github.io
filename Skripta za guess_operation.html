@@ -1,0 +1,511 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+<head>
+<title>Guess operation</title>
+<style>
+	body {
+		font-family: Tahoma, Geneva, sans-serif;
+		font-size: 16px;
+		line-height: 24px;
+		font-weight: bold;
+		color: #09C;
+		text-decoration: none;
+		
+		background: #9dd53a; /* Old browsers */
+		background: -moz-linear-gradient(top,  #9dd53a 0%, #a1d54f 34%, #16bfa6 68%, #0b7cc6 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#9dd53a), color-stop(34%,#a1d54f), color-stop(68%,#16bfa6), color-stop(100%,#0b7cc6)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #9dd53a 0%,#a1d54f 34%,#16bfa6 68%,#0b7cc6 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #9dd53a 0%,#a1d54f 34%,#16bfa6 68%,#0b7cc6 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #9dd53a 0%,#a1d54f 34%,#16bfa6 68%,#0b7cc6 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  #9dd53a 0%,#a1d54f 34%,#16bfa6 68%,#0b7cc6 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9dd53a', endColorstr='#0b7cc6',GradientType=0 ); /* IE6-9 */
+
+		
+		
+		
+	}
+
+	
+	table, th, td{
+		
+		background: #cccccc; /* Old browsers */
+		background: -moz-linear-gradient(top,  #cccccc 0%, #eeeeee 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cccccc), color-stop(100%,#eeeeee)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #cccccc 0%,#eeeeee 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #cccccc 0%,#eeeeee 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #cccccc 0%,#eeeeee 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  #cccccc 0%,#eeeeee 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */
+
+		
+		
+		
+		margin:auto;
+		position:relative;
+
+		width:500px;
+		height:450px;
+
+
+		font-size: 30px;
+		font-style: italic;
+		line-height: 30px;
+		font-weight: bold;
+		color: #09C;
+
+
+
+		-webkit-border-radius: 10px;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+		padding:10px;
+		border: 1px solid #999;
+		border: inset 1px solid #333;
+		-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+		-moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+		box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+		
+	}
+	
+	td{
+	
+		text-align: center;
+		padding: 5px,5px,5px,5px;
+		width: 50px;
+		height: 40px
+	
+	}
+
+	td:nth-child(1) { 
+	}
+		
+	form{
+		margin:auto;
+		
+	}
+	
+	input {
+		border: 1px solid black;
+		width: 40px;
+		height: 40px;
+
+		font-size: 20px;
+		font-style: italic;
+		line-height: normal;
+		font-weight: bold;
+		color: #09C;
+		padding:10px;
+	
+		/*background gradiant za operaciju*/	
+		background: rgba(160,242,28,1);/* Old Browsers */
+		background: -moz-radial-gradient(center, ellipse cover, rgba(160,242,28,1) 20%, rgba(160,242,28,1) 53%, rgba(96,155,60,1) 99%, rgba(95,153,61,1) 100%);
+		/* FF3.6+ */background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(20%, rgba(160,242,28,1)), color-stop(53%, rgba(160,242,28,1)), color-stop(99%, rgba(96,155,60,1)), color-stop(100%, rgba(95,153,61,1)));
+		/* Chrome, Safari4+ */background: -webkit-radial-gradient(center, ellipse cover, rgba(160,242,28,1) 20%, rgba(160,242,28,1) 53%, rgba(96,155,60,1) 99%, rgba(95,153,61,1) 100%);
+		/* Chrome10+,Safari5.1+ */background: -o-radial-gradient(center, ellipse cover, rgba(160,242,28,1) 20%, rgba(160,242,28,1) 53%, rgba(96,155,60,1) 99%, rgba(95,153,61,1) 100%);
+		/* Opera 11.10+ */background: -ms-radial-gradient(center, ellipse cover, rgba(160,242,28,1) 20%, rgba(160,242,28,1) 53%, rgba(96,155,60,1) 99%, rgba(95,153,61,1) 100%);
+		/* IE 10+ */background: radial-gradient(ellipse at center, rgba(160,242,28,1) 20%, rgba(160,242,28,1) 53%, rgba(96,155,60,1) 99%, rgba(95,153,61,1) 100%);
+		/* W3C */filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a0f21c', endColorstr='#5f993d', GradientType=1 );
+		/* IE6-9 fallback on horizontal gradient */
+		
+		
+		border: 1px solid #999;
+		-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+		-moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+		box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+
+	}
+	
+	button {
+		display: block;
+		margin:auto;
+		position:relative;
+		
+		width: 150px;
+		height: 40px;
+		
+		background:#09C;
+		color:#fff;
+		font-family: Tahoma, Geneva, sans-serif;
+		font-size: 20px;
+		line-height: 30px;
+		font-weight: bold;
+		height:45px;
+		-webkit-box-shadow: none;
+		-webkit-border-radius: 15px;
+		-moz-border-radius: 15px;
+		border-radius: 15px;
+	}
+	
+	.loadButtonReset{
+		color: #8F2400!important; 
+	}
+	
+	button:hover {
+		background:#fff;
+		color:#09C;
+	}
+	
+	button::-moz-focus-inner { 
+		border: 0; 
+	}
+	
+	.wrapper{
+		border: 1px solid black;
+		margin:auto;
+		position:relative;
+		width: 100%;
+		height: 500px;
+		
+		background: #9dd53a; /* Old browsers */
+		background: -moz-linear-gradient(45deg,  #9dd53a 0%, #a1d54f 34%, #16bfa6 68%, #0b7cc6 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#9dd53a), color-stop(34%,#a1d54f), color-stop(68%,#16bfa6), color-stop(100%,#0b7cc6)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(45deg,  #9dd53a 0%,#a1d54f 34%,#16bfa6 68%,#0b7cc6 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(45deg,  #9dd53a 0%,#a1d54f 34%,#16bfa6 68%,#0b7cc6 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(45deg,  #9dd53a 0%,#a1d54f 34%,#16bfa6 68%,#0b7cc6 100%); /* IE10+ */
+		background: linear-gradient(45deg,  #9dd53a 0%,#a1d54f 34%,#16bfa6 68%,#0b7cc6 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9dd53a', endColorstr='#0b7cc6',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+	}
+	
+</style>
+<script type="text/javascript">
+var prvi, drugi, rez, skor, code, vreme, t;
+var buttonUcitavanje = true; //true je ucitavanje false je reset
+// create as many regular expressions here as you need:
+var digitsOnly = /[1234567890]/g;
+var integerOnly = /[0-9\.]/g;
+var alphaOnly = /[A-Za-z]/g;
+var opOnly = /[*+-/]/g;
+
+var operacija = randOp();
+skor = 0;
+vreme = 30.0;
+
+
+function randOp(){
+	var x = new Array();
+	x[0] = "+";	x[1] = "-";	x[2] = "*";	x[3] = "/";
+	
+	return x[ (Math.floor(Math.random() * 4)) ];	
+}
+//////////////////////////////////
+function timer(){
+//console.log(vreme);
+	if (vreme == 0){
+		//debugger;
+		document.getElementById("sat").innerHTML = vreme.toFixed(1);
+		clearInterval(t);
+		
+		//document.getElementById('tabela').style.display = 'none';
+		document.getElementById('tabela').style.visibility = 'hidden';
+		
+		alert(skor.toString());
+		
+		buttonUcitavanje = true;
+		novaPostavka();
+		return false;
+	}
+	
+	document.getElementById("sat").innerHTML = vreme.toFixed(1);
+	vreme = vreme - 0.1;
+	vreme = +(Math.round(vreme + "e+2")  + "e-2");
+	t = setTimeout("timer()", 100);
+	
+	
+}
+
+
+/////////////////////////////
+function novaPostavka(){
+	
+	vreme = 30.0; 
+	skor = 0; document.getElementById("skor").innerHTML = skor;
+	document.getElementById('loadButton').innerHTML = 'Ucitavanje';
+	document.getElementById('loadButton').className = "loadButton"; //'#fff';
+	
+	postavka();
+
+	document.getElementById('tabela').style.display = '';	
+	document.getElementById('tabela').style.visibility = 'hidden';
+
+	//document.getElementById('loadButton').style.display = '';
+	document.getElementById('loadButton').focus();
+}
+
+
+function restrictCharacters(myfield, e, restrictionType) {
+if (!e) var e = window.event
+if (e.keyCode) code = e.keyCode;
+else if (e.which) code = e.which;
+var character = String.fromCharCode(code);
+// if they pressed esc... remove focus from field...
+if (code==27) { this.blur(); return false; }
+// ignore if they are press other keys
+// strange because code: 39 is the down key AND ' key...
+// and DEL also equals .
+if (!e.ctrlKey && code!=9 && code!=8 && code!=36 && code!=37 && code!=38 && (code!=39 || (code==39 && character=="'")) && code!=40) {
+if (character.match(restrictionType)) {
+// 43+; 45- ; 42 *; 47/
+
+//proverava da li je tacno unesena operacija daje rezultat
+//---------------------
+//debugger;
+
+switch (code){
+case 43:
+	if((prvi + drugi) == rez){
+		skor = skor + 10;
+	}
+	else {if ( skor > 10) {
+			skor = skor -15; }
+			else {skor = 0;	}
+		}
+	document.getElementById("skor").innerHTML = skor;
+
+	break;
+	
+case 45:
+	if((prvi - drugi) == rez){
+		skor = skor + 10;
+	}
+	else {if ( skor > 10) {
+			skor = skor -15; }
+			else {skor = 0; }
+		}
+	document.getElementById("skor").innerHTML = skor;
+		
+	break;
+	
+case 42:
+	if((prvi * drugi) == rez){
+		skor = skor + 10;
+	}
+	else {if ( skor > 10) {
+			skor = skor -15; }
+			else {skor = 0; }
+		}
+	document.getElementById("skor").innerHTML = skor;
+		
+	break;
+	
+case 47:
+	if((prvi / drugi) == rez){
+		skor = skor + 10;
+	}
+	else {if ( skor > 10) {
+			skor = skor -15; }
+			else {skor = 0; }
+		}
+	document.getElementById("skor").innerHTML = skor;
+		
+	break;
+	
+	
+}
+
+// postvlja vrednosti za sledece izracinavanje
+//	ovde je bilo brisanje operacije ali nije htelo da radi. mozda zato sto je definisana posle ove funkcije :S
+	postavka();
+	console.log(operacija);
+
+return true;
+
+}
+
+
+else {
+return false;
+}
+
+}
+}
+// postavlja brojeve na mesta prvi, drugi i rez
+function postavka(){
+
+	operacija = randOp();
+	switch (operacija){
+	case "+":
+	opAdd();
+	break;
+	case "-":
+	opSub();	
+	break;
+	case "*":
+	opMul();
+	break;
+	case "/":
+	opDiv();
+	break;
+	}
+}
+
+//brise operaciju posle unosa
+function brisOp(){
+
+	document.getElementById("oper").value = '';
+	//debugger;
+}
+
+//randNum("+");
+function opAdd(){
+
+prvi = Math.floor(Math.random() * 29) + 1;
+drugi = Math.floor(Math.random() * 29) + 1;
+document.getElementById("prvi").innerHTML = prvi;
+document.getElementById("drugi").innerHTML = drugi;
+rez = prvi + drugi;
+document.getElementById("rezultat").innerHTML = rez;
+}
+
+function opSub(){
+
+var pom;
+prvi = Math.floor(Math.random() * 49) + 1;
+drugi = Math.floor(Math.random() * 49) + 1;
+if (prvi < drugi) {
+	pom = prvi;
+	prvi = drugi;
+	drugi = pom;
+}
+rez = prvi - drugi;
+
+document.getElementById("prvi").innerHTML = prvi;
+document.getElementById("drugi").innerHTML = drugi;
+document.getElementById("rezultat").innerHTML = rez;
+
+}
+
+function opMul(){
+
+prvi = Math.floor(Math.random() * 11) + 1;
+drugi = Math.floor(Math.random() * 11) + 1;
+rez = prvi * drugi;
+document.getElementById("prvi").innerHTML = prvi;
+document.getElementById("drugi").innerHTML = drugi;
+document.getElementById("rezultat").innerHTML = rez;
+
+}
+
+function opDiv(){
+
+drugi = Math.floor(Math.random() * 10) + 1;
+rez = Math.floor(Math.random() * 10) + 1;
+prvi = rez * drugi;
+document.getElementById("prvi").innerHTML = prvi;
+document.getElementById("drugi").innerHTML = drugi;
+document.getElementById("rezultat").innerHTML = rez;
+}
+
+function load(){
+	document.getElementById('tabela').style.visibility = 'visible';
+	//document.getElementById('loadButton').style.display = 'none';
+	buttonUcitavanje = !buttonUcitavanje;
+	if (buttonUcitavanje == false){
+		timer();
+		document.getElementById('loadButton').innerHTML = 'Reset'; 
+		document.getElementById('loadButton').className = 'loadButtonReset'; //#8F2400
+	}
+	else {
+		clearInterval(t);
+
+		novaPostavka();
+	
+	}
+	
+	//console.log(buttonUcitavanje);
+	//i da se sacuva u promenljivu koji je button (reset ili ucitavanje)
+	
+
+	document.getElementById('oper').focus();
+}
+
+
+/*function resetButton(buttonUcitavanje){
+	console.log(buttonUcitavanje);
+
+	/*da se button vrati na true 
+	da se ucitaju elementi
+	da se timer vrati i interval prekine
+
+	
+	if (buttonUcitavanje == false ){
+		document.getElementById('loadButton').innerHTML = 'Ucitavanje';
+		document.getElementById('loadButton').style.color = '#fff';
+		buttonUcitavanje = true;
+	
+	}
+	
+	
+}*/
+
+</script>
+</head>
+
+
+<body onload="postavka()">
+<div class="wrapper">
+<table name="tabela" id="tabela" style="visibility: hidden;" >
+	<tbody>
+	<tr>
+	
+	<td name="prvi" id="prvi" colspan="1"></td>
+		
+	<td><form>
+	<div class="operacija">
+		<input type="text" name="oper" id="oper" size="1" maxlength="1"  onkeypress="return restrictCharacters(this, event, opOnly)" onkeyup="brisOp()" autocomplete="off" autofocus>
+	</div>
+	</form></td>
+	
+	<td name="drugi" id="drugi"></td>
+	<td>=</td>
+	<td name="rezultat" id="rezultat"></td>
+	
+	</tr>
+	
+	<tr> 
+		<td colspan="2">Vreme: </td>
+		<td name="sat" id="sat" colspan="3"></td>
+	
+	</tr>
+	
+	<tr> 
+		<td colspan="2">Skor: </td>
+		<td name="skor" id="skor" colspan="3">0</td>
+	
+	</tr>
+	
+
+
+	</tbody>
+
+</table>
+
+<button type="button" name="loadButton" class="loadButton " id="loadButton"
+onclick="load()" autofocus>
+Ucitavanje</button>
+
+</div>
+
+
+
+</body>
+
+<!-- todo:
+	napraviti da nije alert skor na kraju nego neki fansi izgled gde ce imati opcija za save highscore
+	
+	u chrome se ne autofokusira button kad se loaduje prvi put
+	
+	napraviti da skor moze da se sacuva (unos je samo mala i velika slova)
+	
+	+izmeniti kolonu skor i vreme (da se obrnu mesta)
+	+napraviti dijagram programa
+	+napraviti da moze da ima dugmence reset za reset i ponovno ucitavanje igre(mozda da se dugme ucitaj promeni u reset dugme)
+	da ima combo skor npr. +5 za svaki tacan odgovor sve do combo od 5. kada se pogresi izgubi se kombo
+	napraviti vizuelnu indikaciju da je unos tacan i da je unos netacan. neki css da pozeleni kad je tacno ili pocrveni kad se pogresi
+	
+	napraviti da se timer ne blokira kad nije u brouzer fokusu tab
+	
+ -->
+</html>
